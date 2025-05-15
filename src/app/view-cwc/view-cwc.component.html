@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Country Name</th>
+          <th>ISO 2</th>
+          <th>ISO 3</th>
+          <th>City</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of list; track $index) {
+        <tr>
+          <td>{{ $index + 1 }}</td>
+          <td>{{ item.country.name }}</td>
+          <td>{{ item.country.iso2 }}</td>
+          <td>{{ item.country.iso3 }}</td>
+          <td>
+            <strong>City</strong>
+            <div *ngIf="item.cities.length">
+              <table class="table table table-bordered table-striped table-sm">
+                <thead>
+                  <tr>
+                    <th>Sl No</th>
+                    <th>City Name</th>
+                    <th>LOT</th>
+                    <th>LAN</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (c of item.cities; track $index) {
+                  <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.lot }}</td>
+                    <td>{{ c.lan }}</td>
+                  </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </td>
+          <td>
+            <button
+              (click)="onDelete(item)"
+              type="button"
+              class="btn btn-danger"
+            >
+              Delete
+            </button>
+
+            <a
+              [routerLink]="['/Index', 'edit', item.country.id]"
+              type="button"
+              class="btn btn-info"
+              >Edit</a
+            >
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="card col-6">
+        <h1 class="card-head">Add Country</h1>
+        <div class="card-body">
+          <div class="mt-3">
+            <label>Country Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="countryOBJ.name"
+            />
+          </div>
+
+          <div class="mt-3">
+            <label>ISO 2</label>
+            <input
+              type="text"
+              class="form-control"
+              name="iso2"
+              [(ngModel)]="countryOBJ.iso2"
+            />
+          </div>
+
+          <div class="mt-3">
+            <label>ISO 3</label>
+            <input
+              type="text"
+              class="form-control"
+              name="iso3"
+              [(ngModel)]="countryOBJ.iso3"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="card col-6">
+        <h1 class="card-head">Add City</h1>
+        <div class="card-body">
+          <div class="mt-3">
+            <label>City Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              [(ngModel)]="cityOBJ.name"
+            />
+          </div>
+
+          <div class="mt-3">
+            <label>LOT</label>
+            <input
+              type="number"
+              class="form-control"
+              name="lot"
+              [(ngModel)]="cityOBJ.lot"
+            />
+          </div>
+
+          <div class="mt-3">
+            <label>LAN</label>
+            <input
+              type="number"
+              class="form-control"
+              name="lan"
+              [(ngModel)]="cityOBJ.lan"
+            />
+          </div>
+
+          <div class="mt-3">
+            <button
+              (click)="addCity()"
+              type="button"
+              class="btn btn-info mt-3 mb-2"
+            >
+              Add City
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="cityList.length > 0" class="card">
+      <table class="table table table-bordered table-striped table-sm">
+        <thead>
+          <tr>
+            <th>Sl No</th>
+            <th>City Name</th>
+            <th>LOT</th>
+            <th>LAN</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (c of cityList; track $index) {
+          <tr>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.lot }}</td>
+            <td>{{ c.lan }}</td>
+            <td>
+              <button
+                (click)="removeC(c, cityList)"
+                type="button"
+                class="btn btn-danger"
+              >
+                Remove
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer mt-2">
+      <button
+        (click)="updateCWC()"
+        type="button"
+        class="btn btn-primary btn-lg"
+      >
+        Update
+      </button>
+    </div>
+  </form>
+</div>
