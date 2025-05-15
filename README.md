@@ -1,4 +1,7 @@
-# EV
+![Screenshot 2025-05-15 161020](https://github.com/user-attachments/assets/b355893f-71b6-495f-93ef-7d704251a809)
+![Screenshot 2025-05-15 160910](https://github.com/user-attachments/assets/a2dc8189-2707-4e01-86ca-061610f486b0)
+
+![Screenshot 2025-05-15 160951](https://github.com/user-attachments/assets/68be1b8b-6d83-4e64-a0b5-46faaac0479f)
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.
 
